@@ -12,7 +12,8 @@
 				$strong = True;
 				$token = bin2hex(openssl_random_pseudo_bytes(64, $strong));
 				DB::query('INSERT INTO tokens (user_id, token) VALUES (:user_id, :token)', array(':user_id'=>$user_id, ':token'=>sha1($token)));
-				setcookie("CID", $token, time() + 60 * 60 * 24, '/', NULL, NULL, TRUE);
+				setcookie("CID", $token, time() + 60 * 60 * 24 * 7, '/', NULL, NULL, TRUE);
+				setcookie("CID_", '1', time() + 60 * 60 * 24 * 1, '/', NULL, NULL, TRUE);
 			}
 			else {echo "incorrect password";}
 		}
