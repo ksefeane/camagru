@@ -1,0 +1,45 @@
+fold (){
+        mkdir $1
+        cd $1
+}
+push (){
+        git add -A
+        git status
+        git commit -m "$1"
+        git push origin $2
+}
+vimphp (){
+        w="#!/usr/bin/php
+<?php
+
+?>"
+        touch $1."php"
+        chmod 755 $1."php"
+        vim $1."php"
+}
+addalias (){
+        echo alias $1=\"$2\" >> ~/.zshrc
+        zsh
+}
+tempalias (){
+        echo alias $1=\"$2\"
+}
+catchgit (){
+        git clone https://github.com/ksefeane/$1.git $2
+        cd $1
+}
+alias c="chmod 755"
+alias ga="git add"
+alias gc="git commit -m"
+alias gp="clear && git push origin"
+alias gs="clear && git status"
+alias f=fold "$1"
+alias gpa=push "$1" "$2"
+alias t=vimphp "$1"
+alias aa=addalias "$1" "$2"
+alias ta=tempalias "$1" "$2"
+alias D="rm -rf"
+alias d="rm"
+alias gpa=push "$1" "$2"
+alias catch=catchgit "$1" "$2"
+alias switch="git checkout"

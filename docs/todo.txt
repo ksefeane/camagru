@@ -1,0 +1,14 @@
+#html
+	-forms
+	-watch derek
+#css
+	-padding, margin
+	-make cards, picture sizes
+
+#php
+	-watch videos
+#mysql
+	-watch videos
+
+#work
+	-offerzen
