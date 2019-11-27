@@ -26,7 +26,8 @@
 			email VARCHAR (255) NOT NULL UNIQUE,
 			password VARCHAR (255) NOT NULL,
 			date_created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-			validated ENUM('T','F') NOT NULL DEFAULT 'F',
+			vkey VARCHAR (255) NOT NULL,
+			verified ENUM('T','F') NOT NULL DEFAULT 'F',
 			admin ENUM('T','F') NOT NULL DEFAULT 'F'
 			)";
 		$conn->exec($sql);

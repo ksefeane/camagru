@@ -5,9 +5,9 @@
 		$username = $_POST['username'];
 		$password = $_POST['password'];
 
-		if (DB::query('SELECT username FROM users WHERE username=:username', array(':username'=>$username))){
+		if (DB::query('SELECT username FROM users WHERE username=:username AND verified=\'T\'', array(':username'=>$username))){
 			if (password_verify($password, DB::query('SELECT password FROM users WHERE username=:username', array('username'=>$username))[0]['password'])) {
-				echo "login successfully<br />";
+				echo "login successful<br />";
 				$user_id = DB::query('SELECT id FROM users WHERE username=:username', array('username'=>$username))[0]['id'];
 				$strong = True;
 				$token = bin2hex(openssl_random_pseudo_bytes(64, $strong));

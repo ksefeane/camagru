@@ -4,6 +4,8 @@ include 'classes/Login.php';
 
 if (Login::isLoggedIn()) {
 	echo "logged in!<br />";
-} else {echo "not logged in!<br />";}
+} else {
+	header('location: create_account.php');
+}
 
 ?>
