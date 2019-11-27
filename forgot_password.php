@@ -5,15 +5,16 @@ if (isset($_POST['reset'])) {
 	$username = $_POST['username'];
 	if (DB::query('SELECT username FROM users WHERE username=:username', array('username'=>$username))) {
 		$email = DB::query('SELECT email FROM users WHERE username=:username', array('username'=>$username))[0]['email'];
-		$reset = sha1(time().$email);
+		$vkey = DB::query('SELECT vkey FROM users WHERE email=:email', array('email'=>$email))[0]['vkey'];
+		$reset = sha1($email.$vkey);
 		$to = $email;
 		$subject = "password reset";
-		$msg = "<a href=\"http://localhost/camagru/reset_password.php?reset=$reset\"> reset password </a>";
+		$msg = "<a href=\"http://localhost/camagru/reset_password.php?u=$username&r=$reset\"> reset password </a>";
 		$headers = 'From: camagru.com' . "\r\n";
 		$headers .= 'MIME-Version: 1.0' . "\r\n";
 		$headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
 		mail($to, $subject, $msg, $headers);
-		header('location: reset_password.php')
+		echo "please click on the password reset link sent to your email";
 	} else {echo "not a registered user";}
 } else {echo "please enter username and click reset";}
 ?>
