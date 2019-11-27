@@ -14,13 +14,13 @@
 						if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
 							if (strlen($password) > 3 && preg_match('/[a-z][0-9]+/', $password)) {
 							DB::query('INSERT INTO users (username, email, password, vkey) VALUES (:username, :email, :password, :vkey)', array(':username'=>$username, ':email'=>$email, ':password'=>password_hash($password, PASSWORD_BCRYPT), ':vkey'=>$vkey));
-							$addr = $email;
+							$to = $email;
 							$subject = "Email Verification";
 							$msg = "<a href=\"http://localhost/camagru/verify.php?vkey=$vkey\"> please click here to register account </a>";
 							$headers = 'From: camagru.com' . "\r\n";
 							$headers .= 'MIME-Version: 1.0' . "\r\n";
 							$headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
-							mail($addr, $subject, $msg, $headers);
+							mail($to, $subject, $msg, $headers);
 							header('location: verify.php');
 							}
 							else {echo "password not strong enough";}
