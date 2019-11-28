@@ -18,6 +18,12 @@ form input{
 	z-index: 0;
 	border-radius: 10px;
 }
+.nav-bar{
+	width: 500px;
+	height: 300px;
+	background-color: yellow;
+	z-index: 0;
+}
 #login-card{
 	height: 350px;
 	width: 250px;

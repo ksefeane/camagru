@@ -1,23 +1,18 @@
 <?php
-include 'classes/DB.php';
-include 'classes/Login.php';
-
-if (!Login::isLoggedIn()) {
-	die('not logged in');
-}
-if (isset($_POST['logout'])) {
-		if (isset($_POST['alldevices'])) {
-			DB::query('DELETE FROM tokens WHERE user_id=:user_id', array(':user_id'=>Login::isLoggedIn()));
-		} else if (isset($_COOKIE['CID'])) {
-				DB::query('DELETE FROM tokens WHERE token=:token', array(':token'=>sha1($_COOKIE['CID'])));
-				setcookie('CID', '1', time() - 3600);
-				setcookie('CID_', '1', time() - 3600);
-				echo "logged out successfully";
-			} else {echo "error loging out all devices";}
-}
+session_start();
 ?>
-<h2>Would you like to log out?</h2>
+
+<?php
+include 'classes/DB.php';
+
+if (isset($_POST['logout'])) {
+	DB::query('DELETE FROM tokens WHERE token=:token', array(':token'=>sha1($_SESSION['usertoken'])));
+	session_unset();
+	session_destroy();
+	echo "logged out successfully";
+	header('location: login.php');
+} else {echo "click log out button";}
+?>
 <form action="logout.php" method="POST">
-	<input type="checkbox" name="alldevices" value="alldevices"> Logout all devices? <br />
-	<input type="submit" name="logout" value="yes">
+	<input type="submit" name="logout" value="logout">
 </form>
