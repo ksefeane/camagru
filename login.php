@@ -18,6 +18,7 @@ if (isset($_SESSION['usertoken'])) {
 			$token = bin2hex(openssl_random_pseudo_bytes(64, $strong));
 			DB::query('INSERT INTO tokens (user_id, token) VALUES (:user_id, :token)', array(':user_id'=>$user_id, ':token'=>sha1($token)));
 			$_SESSION['usertoken'] = $token;
+			$_SESSION['username'] = $username;
 			echo "login successful";
 			header('location: feed.php');
 		} else {echo "password incorrect";}
@@ -29,7 +30,7 @@ if (isset($_SESSION['usertoken'])) {
 <head>
 	<title>camagru - login</title>
 <!--	<meta http-equiv="refresh" content="2"> -->
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 	<div class="lrg-card">

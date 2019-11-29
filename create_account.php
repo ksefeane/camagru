@@ -39,7 +39,7 @@
 <html>
 <head>
 	<title>C - create_account</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 	<div class="lrg-card">
@@ -49,7 +49,7 @@
 			<input type="text" name="username" value="" placeholder="username" required><p />
 			<input type="email" name="email" value="" placeholder="valid email" required><p />
 			<input type="password" name="password" value="" placeholder="password" required><p />
-			<input id="login-button"type="submit" name="create_account" value="submit">
+			<input id="login-button" type="submit" name="create_account" value="submit">
 			</form>
 			<a href="login.php">already a member?</a>
 		</div>
