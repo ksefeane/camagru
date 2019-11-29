@@ -10,7 +10,7 @@ session_start();
 <body>
 		<div class="nav-bar">
 			<div id="logo">
-				<a href="http://localhost/camagru/feed.php"><h1>C</h1></a>
+				<a href="http://localhost/camagru/feed.php?u=<?php echo $_SESSION['username'] ?>"><h1>C</h1></a>
 			</div>
 			<div class="punch-hole">
 				<a href="http://localhost/camagru/logout.php"><p>O</p></a>
