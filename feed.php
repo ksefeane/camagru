@@ -30,10 +30,15 @@ session_start();
 </html>
 
 <?php
+require_once 'classes/DB.php';
+
 if (isset($_SESSION['usertoken'])) {
-	echo "logged in";
+	echo "logged in<br/>";
 	if (isset($_POST['logout'])) {
 		header('location: logout.php');
 	}
+} else if (($token = DB::query('SELECT token FROM tokens WHERE token=:token', array(':token'=>sha1($_COOKIE['SID']))))) {
+	echo "logged in database";
+	$_SESSION['usertoken'] = $token;
 } else {echo "not logged in";}
 ?>

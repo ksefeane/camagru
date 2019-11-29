@@ -19,6 +19,7 @@ if (isset($_SESSION['usertoken'])) {
 			DB::query('INSERT INTO tokens (user_id, token) VALUES (:user_id, :token)', array(':user_id'=>$user_id, ':token'=>sha1($token)));
 			$_SESSION['usertoken'] = $token;
 			$_SESSION['username'] = $username;
+			setcookie("SID", $_SESSION['usertoken'], time() + 60 * 60 * 24 * 1);
 			echo "login successful";
 			header('location: feed.php');
 		} else {echo "password incorrect";}
