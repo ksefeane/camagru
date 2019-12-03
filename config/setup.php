@@ -37,6 +37,7 @@ function create_t_tokens($t_name, $db_name, $conn) {
 	$sql = "CREATE TABLE IF NOT EXISTS $db_name.$t_name (
 		id INT UNSIGNED NOT NULL AUTO_INCREMENT,
 		user_id INT NOT NULL REFERENCES users(id),
+		username VARCHAR (255) NOT NULL REFERENCES users(username),
 		token VARCHAR (64) NOT NULL UNIQUE,
 		PRIMARY KEY (`id`),
 		UNIQUE (token)
@@ -49,7 +50,7 @@ function create_t_images($t_name, $db_name, $conn) {
 		id INT UNSIGNED NOT NULL AUTO_INCREMENT,
 		user_id INT NOT NULL REFERENCES users(id),
 		username VARCHAR (255) NOT NULL REFERENCES users(username),
-		img VARCHAR (255) NOT NULL UNIQUE,
+		img_src VARCHAR (255) NOT NULL UNIQUE,
 		date_created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 		PRIMARY KEY (`id`)
 		)";

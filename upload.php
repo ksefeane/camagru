@@ -1,12 +1,15 @@
-<?php
-session_start();
-?>
+<body>
+	<form action="upload.php" method="POST" enctype="multipart/form-data">
+	<input type="file" name="the_file" id="the_file">
+	<input type="submit" name="upload" value="upload">
+	</form>
+</body>
 
 <?php
-if (isset($_SESSION['usertoken'])) {
-	echo "logged in";
-	if (isset($_POST['logout'])) {
-		header('location: logout.php');
-	}
-} else {echo "not logged in";}
+require_once 'classes/Uploads.php';
+
+if (isset($_POST['upload'])) {
+	$file = $_FILES['the_file'];
+	Post::imageUpload($file);
+} else {echo "pick a pic";}
 ?>

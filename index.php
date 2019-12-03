@@ -1,8 +1,7 @@
 <?php
-include 'classes/DB.php';
-include 'classes/Login.php';
+include 'classes/Logs.php';
 
-if (Login::isLoggedIn()) {
+if (Logs::isLoggedIn()) {
 	echo "logged in!<br />";
 } else {
 	header('location: login.php');
