@@ -68,6 +68,13 @@ if (isset($_SESSION['usertoken'])) {
 				navigator.mediaDevices.getUserMedia(constraints)
 					.then(stream => {video.srcObject = stream});
 			}
+			save.addEventListener("click", function () {
+				var data = "img=" + canvas.toDataURL();
+				var xhttp = new XMLHttpRequest();
+				xhttp.open("POST", "upload.php", true);
+				xhttp.setRequestHeader("Content-type", "application/x-www-for-urlencoded");
+				xhttp.send(data);
+			});
 		</script>
 </body>
 </html>

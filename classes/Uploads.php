@@ -4,6 +4,10 @@ require_once 'classes/DB.php';
 class Post {
 	public static function imageUpload($file) {
 		$dir = "media/";
+		if ($file['error'] == 1) {
+			echo "image error<br/>";
+			return false;
+		}
 		$f_name = basename($file['name']);
 		$tmp_name = $file['tmp_name'];
 		$img_type = strtolower(pathinfo($dir.$f_name, PATHINFO_EXTENSION));
