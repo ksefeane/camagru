@@ -68,12 +68,22 @@ if (isset($_SESSION['usertoken'])) {
 				navigator.mediaDevices.getUserMedia(constraints)
 					.then(stream => {video.srcObject = stream});
 			}
+<<<<<<< HEAD
 
 save.addEventListener("click", function () {
 		var pic = document.getElementById("edit");
 		var img = pic.toDataURL("image/png");
 		document.getElementById("video").innerHTML = "img";
 		});
+=======
+			save.addEventListener("click", function () {
+				var data = "img=" + canvas.toDataURL();
+				var xhttp = new XMLHttpRequest();
+				xhttp.open("POST", "upload.php", true);
+				xhttp.setRequestHeader("Content-type", "application/x-www-for-urlencoded");
+				xhttp.send(data);
+			});
+>>>>>>> 2e0eac9b87f2b58636288e88d24246fb91cd14db
 		</script>
 </body>
 </html>
