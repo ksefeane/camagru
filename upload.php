@@ -6,13 +6,15 @@
 </body>
 -->
 <?php
-require_once 'classes/Uploads.php';
+//require_once 'classes/Uploads.php';
 
-if (isset($_POST['upload'])) {
-	$file = $_FILES['the_file'];
-	Post::imageUpload($file);
-} else {
-	$img = $_FILES['img'];
-	echo "<img src=\"$img\"/>";
-}
+//if (isset($_POST['upload'])) {
+//	$file = $_FILES['the_file'];
+//	Post::imageUpload($file);
+//} else {
+$raw = $_POST['key'];
+$raw = str_replace('data:image/png;base64,','', $raw);
+$raw = str_replace(' ', '+', $raw);
+$pic = base64_decode($raw);
+$file_put_contents("", $dec)
 ?>

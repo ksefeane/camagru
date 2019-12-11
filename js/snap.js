@@ -33,7 +33,7 @@ function saveSnap () {
 //	data = data.replace(' ', '+');
 //	var text = "hello";
 	var xhttp = new XMLHttpRequest();
-	var url = "./js/test.php";
+	var url = "upload.php";
 
 	xhttp.open("POST", url, true);
 	xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
