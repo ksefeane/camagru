@@ -8,8 +8,8 @@ var context = canvas.getContext('2d');
 
 snap.addEventListener("click", takeSnap);
 
-open.addEventListener("click", feed);
-
+//open.addEventListener("click", feed);
+feed();
 save.addEventListener("click", saveSnap);
 
 function feed() {
@@ -29,5 +29,19 @@ function takeSnap () {
 }
 
 function saveSnap () {
-	
+	var data = canvas.toDataURL();
+//	data = data.replace(' ', '+');
+//	var text = "hello";
+	var xhttp = new XMLHttpRequest();
+	var url = "./js/test.php";
+
+	xhttp.open("POST", url, true);
+	xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+       // Typical action to be performed when the document is ready:
+      console.log(xhttp.responseText);
+    }
+};
+	xhttp.send('key='+data);
 }

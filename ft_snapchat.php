@@ -50,6 +50,7 @@ if (isset($_SESSION['usertoken'])) {
 			<button id="open" style="margin-left: 250px;"class="red-button">open</button>
 			<button id="save" style="float: right; margin-right: 250px;"class="red-button">save</button>
 		</div>
+		<img src="js/img.png"/>
 
 		<script src="js/snap.js">
 		</script>
