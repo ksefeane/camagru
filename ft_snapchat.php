@@ -41,7 +41,7 @@ if (isset($_SESSION['usertoken'])) {
 				<video id="video" autoplay></video><br/>
 			</div>
 			<div id="cambox" style="float: right;">
-				<canvas id="edit" width="600" height="600"></canvas>
+				<canvas id="edit" width="500" height="500"></canvas>
 			</div>
 		</div>
 
@@ -50,40 +50,7 @@ if (isset($_SESSION['usertoken'])) {
 			<button id="save" style="float: right; margin-right: 250px;"class="red-button">save</button>
 		</div>
 
-		<script type="text/javascript">
-			const video = document.getElementById('video');
-			const snap = document.getElementById('snap');
-			const canvas = document.getElementById('edit');
-			const save = document.getElementById('save');
-
-			feed();
-			
-			var context = canvas.getContext('2d');
-			snap.addEventListener("click", function () 
-					{context.drawImage(video, 0, 0, 600, 600);});
-
-
-			function feed() {
-				var constraints = {video: {width: 600, height: 600 }};
-				navigator.mediaDevices.getUserMedia(constraints)
-					.then(stream => {video.srcObject = stream});
-			}
-<<<<<<< HEAD
-
-save.addEventListener("click", function () {
-		var pic = document.getElementById("edit");
-		var img = pic.toDataURL("image/png");
-		document.getElementById("video").innerHTML = "img";
-		});
-=======
-			save.addEventListener("click", function () {
-				var data = "img=" + canvas.toDataURL();
-				var xhttp = new XMLHttpRequest();
-				xhttp.open("POST", "upload.php", true);
-				xhttp.setRequestHeader("Content-type", "application/x-www-for-urlencoded");
-				xhttp.send(data);
-			});
->>>>>>> 2e0eac9b87f2b58636288e88d24246fb91cd14db
+		<script src="js/snap.js">
 		</script>
 </body>
 </html>

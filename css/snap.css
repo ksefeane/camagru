@@ -1,11 +1,11 @@
 #worktable{
 	width: 100%;
-	height: 600px;
+	height: 500px;
 	background-color: black;
 }
 #cambox{
-	width: 600px;
-	height: 600px;
+	width: 500px;
+	height: 500px;
 	background-color: silver;
 	display: inline-flex;
 	margin: 0 auto;
