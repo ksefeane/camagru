@@ -32,18 +32,16 @@ function feed() {
 	var constraints = {video: {width: 500, height: 500}};
 	navigator.mediaDevices.getUserMedia(constraints)
 		.then(stream => {video.srcObject = stream});
+	document.getElementById("purge").style.display = "none";
+	document.getElementById("video").style.display = "block";
 }
 
 function takeSnap () {
 	context.drawImage(video, 0, 0, 500, 500);
 	pic = canvas;
+	document.getElementById("edit").style.display = "block";
+	document.getElementById("hand").style.display = "none";
 }
-
-function applyfriday () {context.drawImage(friday, 0, 340, 150, 150);}
-function applyinsta () {context.drawImage(insta, 10, 10, 100, 100);}
-function applytwitter () {context.drawImage(twitter, 360, 0, 150, 150);}
-function applyiphone () {context.drawImage(iphone, 80, 20, 350, 480);}
-function applytiktok () {context.drawImage(tiktok, 360, 350, 150, 150);}
 
 function saveSnap () {
 	var data = canvas.toDataURL();
@@ -55,21 +53,37 @@ function saveSnap () {
 	xhttp.onreadystatechange = function() {
     	if (this.readyState == 4 && this.status == 200) {
       		alert("success");
-    	} else 
-    		alert("failure");
+    	} 
 	};
 	xhttp.send('key='+data);
 }
 
 function refreshSnap () {
 	context.drawImage(pic, 0, 0, 500, 500);
+	document.getElementById("hand").style.display = "block";
+//	document.getElementById("purge").style.display = "block";
+	document.getElementById("edit").style.display = "none";
+//	document.getElementById("video").style.display = "none";
 }
 
 function uploadForm () {
 	var state = document.getElementById("formkun").style.display;
-	if (state == "block")
+	if (state == "block") {
 		document.getElementById("formkun").style.display = "none";
-	else
+
+	} else {
 		document.getElementById("formkun").style.display = "block";
+
+	}
+	document.getElementById("video").style.display = "none";
+	document.getElementById("purge").style.display = "block";
 //	alert("hello");
 }
+
+function applyfriday () {context.drawImage(friday, 0, 340, 150, 150);}
+function applyinsta () {context.drawImage(insta, 10, 10, 100, 100);}
+function applytwitter () {context.drawImage(twitter, 360, 0, 150, 150);}
+function applyiphone () {context.drawImage(iphone, 80, 20, 350, 480);}
+function applytiktok () {context.drawImage(tiktok, 360, 350, 150, 150);}
+
+

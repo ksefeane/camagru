@@ -28,6 +28,7 @@ session_start();
 		</div>
 
 			<div id="cambox" style="float:left">
+				<div><img id="purge"src="img/mask_purge.jpg" class="camcircle" style="margin: 10px "/></div>
 				<video id="video" autoplay></video>
 			</div>
 			<div id="filterbox" style="float: left; margin-left: 70">
@@ -52,11 +53,12 @@ session_start();
 				<form action="ft_snapchat.php" method="POST" enctype="multipart/form-data" class="formcontain">
 					<input type="file" name="the_file" id="the_file">
 					<input type="submit" name="upload" value="upload" style="margin-left: 50"class="red-button">
-				</form>
+			</form>
 			</div>
 
 
 			<div id="cambox" style="float: right">
+				<img src="img/instagram.png" id="hand" class="camcircle" style="border-radius: 100px"/>
 				<canvas id="edit" width="500" height="500"></canvas>
 			</div>
 			<div id="filterbox" style="margin-right: 70">

@@ -5,6 +5,14 @@
 	margin: 0 auto;
 	display: inline-flex;
 }
+.camcircle{
+	width: 500px;
+	height: 500px;
+	background-color: inherit;
+	margin: 0 auto;
+	display: inline-flex;
+	border-radius: 300px;
+}
 #filterbox{
 	width: 100px;
 	height: 500px;
@@ -36,7 +44,7 @@
 .popupform{
 	display: none;
   	position: fixed;
-  	margin: 368 650;
+  	margin: 200 150;
   	float: right;
   	z-index: 9;
   	
@@ -49,5 +57,5 @@
 }
 .formcontain input[type=file]{
 	width: 100%;
-	color: maroon;
+	color: white;
 }
