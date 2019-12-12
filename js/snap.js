@@ -1,6 +1,7 @@
 const video = document.getElementById('video');
 const snap = document.getElementById('snap');
 const canvas = document.getElementById('edit');
+const copy = document.getElementById('copy');
 const save = document.getElementById('save');
 const open = document.getElementById('open');
 const refresh = document.getElementById('refresh');
@@ -12,6 +13,7 @@ const tiktok = document.getElementById('tiktok');
 const file = document.getElementById('file');
 
 var context = canvas.getContext('2d');
+var concopy = copy.getContext('2d');
 var pic = null;
 
 open.addEventListener("click", feed);
@@ -41,6 +43,7 @@ function takeSnap () {
 	pic = canvas;
 	document.getElementById("edit").style.display = "block";
 	document.getElementById("hand").style.display = "none";
+	piccache();
 }
 
 function saveSnap () {
@@ -58,26 +61,29 @@ function saveSnap () {
 	xhttp.send('key='+data);
 }
 
+function piccache () {
+	concopy.drawImage(video, 0, 0, 500, 500);
+}
+
 function refreshSnap () {
-	context.drawImage(pic, 0, 0, 500, 500);
-	document.getElementById("hand").style.display = "block";
+	cpy = document.getElementById('copy');
+	context.drawImage(cpy, 0, 0, 500, 500);
+//	document.getElementById("hand").style.display = "block";
 //	document.getElementById("purge").style.display = "block";
-	document.getElementById("edit").style.display = "none";
+//	document.getElementById("edit").style.display = "none";
 //	document.getElementById("video").style.display = "none";
+//	document.getElementById("purge").style.display = "block";
 }
 
 function uploadForm () {
 	var state = document.getElementById("formkun").style.display;
-	if (state == "block") {
+	if (state == "block")
 		document.getElementById("formkun").style.display = "none";
-
-	} else {
+	else
 		document.getElementById("formkun").style.display = "block";
-
-	}
 	document.getElementById("video").style.display = "none";
 	document.getElementById("purge").style.display = "block";
-//	alert("hello");
+
 }
 
 function applyfriday () {context.drawImage(friday, 0, 340, 150, 150);}

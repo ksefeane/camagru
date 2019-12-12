@@ -60,6 +60,7 @@ session_start();
 			<div id="cambox" style="float: right">
 				<img src="img/instagram.png" id="hand" class="camcircle" style="border-radius: 100px"/>
 				<canvas id="edit" width="500" height="500"></canvas>
+				<canvas id="copy" width="500" height="500" style="display:none"></canvas>
 			</div>
 			<div id="filterbox" style="margin-right: 70">
 				<div id="filter">
