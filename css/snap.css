@@ -6,22 +6,12 @@
 #cambox{
 	width: 500px;
 	height: 500px;
-	background-color: silver;
-	display: inline-flex;
+	background-color: black;
 	margin: 0 auto;
 }
-#panel{
-	width: 70%px;
-	height: 80px;
-	background-color: silver;
-}
-#stickerpanel{
-	width: 485px;
-	height: 594px;
-	margin: 0 auto;
+#cambox img{
+	display: inline;
 	background-color: teal;
-	display: inline-flex;
-	margin-bottom: 3px;
 }
 .red-button{
 	width: 80px;
@@ -30,4 +20,9 @@
 	background-color: maroon;
 	color: white;
 	border: 0;
+}
+#pan{
+	width: 800px;
+	height: 600px;
+	background-color: blue;
 }

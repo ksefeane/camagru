@@ -36,24 +36,22 @@ if (isset($_SESSION['usertoken'])) {
 			</div>
 		</div>
 
-		<div id="worktable">
 			<div id="cambox">
 				<video id="video" autoplay></video><br/>
 			</div>
-			<div id="cambox" style="float: right;">
-				<canvas id="edit" width="500" height="500"></canvas>
+			<div id="cambox">
+				<img id="friday" src="img/stickers/blackfriday.png" style="height:100; width:100; background-color: silver">
 			</div>
-		</div>
+			<div id="cambox">
+				<canvas id="edit" width="500" height="500"></canvas>
+			</div></p>
+			
+			<button id="snap" class="red-button">capture</button>
+			<button id="open" class="red-button">open</button>
+			<button id="save" class="red-button">save</button>
+			<button id="apply" class="red-button">apply</button>
 
-		<div id="panel">
-			<button id="snap" style="margin-left: 250px;"class="red-button">capture</button>
-			<button id="open" style="margin-left: 250px;"class="red-button">open</button>
-			<button id="save" style="float: right; margin-right: 250px;"class="red-button">save</button>
-		</div>
-		<img src="js/img.png"/>
-
-		<script src="js/snap.js">
-		</script>
+		<script src="js/snap.js"></script>
 </body>
 </html>
 
