@@ -1,0 +1,39 @@
+#worktable{
+	width: 100%;
+	height: 500px;
+	background-color: black;
+}
+#cambox{
+	width: 500px;
+	height: 500px;
+	background-color: teal;
+	margin: 0 auto;
+	display: inline-flex;
+}
+#filterbox{
+	width: 300px;
+	height: 500px;
+	background-color: pink;
+	margin: 0 auto;
+	float: right;
+}
+#filter{
+	width: 100%;
+	height: 100px;
+	background-color: purple;
+	display: inline-block;
+}
+.sticker{
+margin: 0px 100px;
+	width: 90px;
+	height: 90px;
+	background-color: purple;
+}
+.red-button{
+	width: 80px;
+	height: 80px;
+	border-radius: 50px;
+	background-color: maroon;
+	color: white;
+	border: 0;
+}

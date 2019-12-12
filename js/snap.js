@@ -13,7 +13,7 @@ open.addEventListener("click", feed);
 snap.addEventListener("click", takeSnap);
 friday.addEventListener("click", applySticker);
 save.addEventListener("click", saveSnap);
-
+feed();
 function feed() {
 	var constraints = {video: {width: 500, height: 500}};
 	navigator.mediaDevices.getUserMedia(constraints)

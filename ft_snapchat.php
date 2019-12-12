@@ -6,7 +6,7 @@ session_start();
 <head>
 		<link rel="stylesheet" type="text/css" href="css/header.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<link rel="stylesheet" type="text/css" href="css/snap.css">
+		<link rel="stylesheet" type="text/css" href="css/filter.css">
 </head>
 <body>
 		<div class="nav-bar">
@@ -30,11 +30,25 @@ session_start();
 			<div id="cambox">
 				<video id="video" autoplay></video>
 			</div>
-			<div id="cambox">
-				<img id="friday" src="img/stickers/blackfriday.png" style="height:100; width:100; background-color: silver">
-			</div>
-			<div id="cambox">
+			<div id="cambox" style="float: right">
 				<canvas id="edit" width="500" height="500"></canvas>
+			</div>
+			<div id="filterbox">
+				<div id="filter">
+					<img id="friday" src="img/stickers/blackfriday.png" class="sticker"/>
+				</div>
+				<div id="filter">
+					<img id="insta" src="img/stickers/instagram.png" class="sticker"/>
+				</div>
+				<div id="filter">
+					<img id="twitter" src="img/stickers/twitter.png" class="sticker"/>
+				</div>
+				<div id="filter">
+					<img id="iphone" src="img/stickers/iphone.png" class="sticker"/>
+				</div>
+				<div id="filter">
+					<img id="tiktok" src="img/stickers/tiktok.png" class="sticker"/>
+				</div>
 			</div></p>
 			
 			<button id="snap" class="red-button">capture</button>

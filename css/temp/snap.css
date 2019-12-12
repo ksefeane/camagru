@@ -6,8 +6,9 @@
 #cambox{
 	width: 500px;
 	height: 500px;
-	background-color: black;
+	background-color: pink;
 	margin: 0 auto;
+	display: inline;
 }
 #cambox img{
 	display: inline;
