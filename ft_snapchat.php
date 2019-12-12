@@ -88,7 +88,7 @@ session_start();
 
 <?php
 if (isset($_SESSION['usertoken'])) {
-	//echo "logged in";
+	echo "logged in";
 	if (isset($_POST['logout'])) {
 		header('location: logout.php');
 	}
