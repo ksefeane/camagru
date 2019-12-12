@@ -11,7 +11,7 @@
 	display: inline-flex;
 }
 #filterbox{
-	width: 300px;
+	width: 100px;
 	height: 500px;
 	background-color: pink;
 	margin: 0 auto;
@@ -24,16 +24,16 @@
 	display: inline-block;
 }
 .sticker{
-margin: 0px 100px;
+	margin: 0 5px;
 	width: 90px;
 	height: 90px;
 	background-color: purple;
 }
 .red-button{
 	width: 80px;
-	height: 80px;
+	height: 80px
 	border-radius: 50px;
-	background-color: maroon;
+	background-color: blue;
 	color: white;
 	border: 0;
 }

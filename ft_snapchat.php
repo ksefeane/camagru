@@ -27,8 +27,22 @@ session_start();
 			</div>
 		</div>
 
-			<div id="cambox">
+			<div id="cambox" style="float:left">
 				<video id="video" autoplay></video>
+			</div>
+			<div id="filterbox" style="float: left">
+				<div id="filter">
+					<button id="snap" class="red-button">capture</button>
+				</div>
+				<div id="filter">
+					<button id="open" class="red-button">open</button>
+				</div>
+				<div id="filter">
+					<button id="save" class="red-button">open</button>
+				</div>
+				<div id="filter">
+					<button id="refresh" class="red-button">refresh</button>
+				</div>
 			</div>
 			<div id="cambox" style="float: right">
 				<canvas id="edit" width="500" height="500"></canvas>
@@ -51,9 +65,7 @@ session_start();
 				</div>
 			</div></p>
 			
-			<button id="snap" class="red-button">capture</button>
-			<button id="open" class="red-button">open</button>
-			<button id="save" class="red-button">save</button>
+
 
 		<script src="js/snap.js"></script>
 </body>
