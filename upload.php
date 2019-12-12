@@ -16,5 +16,5 @@ $raw = $_POST['key'];
 $raw = str_replace('data:image/png;base64,','', $raw);
 $raw = str_replace(' ', '+', $raw);
 $pic = base64_decode($raw);
-$file_put_contents("", $dec)
+file_put_contents("media/test.png", $pic);
 ?>
