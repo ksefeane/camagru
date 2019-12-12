@@ -11,12 +11,14 @@ const twitter = document.getElementById('twitter');
 const iphone = document.getElementById('iphone');
 const tiktok = document.getElementById('tiktok');
 const file = document.getElementById('file');
+const purge = document.getElementById('purge');
 
 var context = canvas.getContext('2d');
 var concopy = copy.getContext('2d');
 var pic = null;
 
 open.addEventListener("click", feed);
+purge.addEventListener("click", feed);
 //feed();
 snap.addEventListener("click", takeSnap);
 
@@ -31,11 +33,23 @@ refresh.addEventListener("click", refreshSnap);
 file.addEventListener("click", uploadForm);
 
 function feed() {
+	var state = document.getElementById("open").innerHTML;
 	var constraints = {video: {width: 500, height: 500}};
 	navigator.mediaDevices.getUserMedia(constraints)
 		.then(stream => {video.srcObject = stream});
-	document.getElementById("purge").style.display = "none";
-	document.getElementById("video").style.display = "block";
+	if (state == "open") {
+		document.getElementById("purge").style.display = "none";
+		document.getElementById("video").style.display = "block";
+		document.getElementById("open").innerHTML = "close";
+	} else {
+		document.getElementById("open").innerHTML = "open";
+		document.getElementById("purge").style.display = "block";
+		document.getElementById("video").style.display = "none";
+		navigator.mediaDevices.getUserMedia(constraints)
+			.then(stream => {video.srcObject = null});
+		video.pause();
+		video.src = "";
+	}
 }
 
 function takeSnap () {
@@ -83,7 +97,6 @@ function uploadForm () {
 		document.getElementById("formkun").style.display = "block";
 	document.getElementById("video").style.display = "none";
 	document.getElementById("purge").style.display = "block";
-
 }
 
 function applyfriday () {context.drawImage(friday, 0, 340, 150, 150);}

@@ -28,7 +28,7 @@ session_start();
 		</div>
 
 			<div id="cambox" style="float:left">
-				<div><img id="purge"src="img/mask_purge.jpg" class="camcircle" style="margin: 10px "/></div>
+				<img id="purge" src="img/mask_purge.jpg" class="camcircle" style="margin: 10px "/>
 				<video id="video" autoplay></video>
 			</div>
 			<div id="filterbox" style="float: left; margin-left: 70">
@@ -39,7 +39,7 @@ session_start();
 					<button id="snap" class="red-button">capture</button>
 				</div>
 				<div id="filter">
-					<button id="refresh" class="red-button">refresh</button>
+					<button id="refresh" class="red-button">reset</button>
 				</div>
 				<div id="filter">
 					<button id="save" class="red-button">save</button>
