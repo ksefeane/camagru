@@ -2,15 +2,6 @@
 session_start();
 ?>
 
-<?php
-if (isset($_SESSION['usertoken'])) {
-	//echo "logged in";
-	if (isset($_POST['logout'])) {
-		header('location: logout.php');
-	}
-} else {echo "not logged in";}
-?>
-
 <html>
 <head>
 		<link rel="stylesheet" type="text/css" href="css/header.css">
@@ -37,7 +28,7 @@ if (isset($_SESSION['usertoken'])) {
 		</div>
 
 			<div id="cambox">
-				<video id="video" autoplay></video><br/>
+				<video id="video" autoplay></video>
 			</div>
 			<div id="cambox">
 				<img id="friday" src="img/stickers/blackfriday.png" style="height:100; width:100; background-color: silver">
@@ -49,9 +40,17 @@ if (isset($_SESSION['usertoken'])) {
 			<button id="snap" class="red-button">capture</button>
 			<button id="open" class="red-button">open</button>
 			<button id="save" class="red-button">save</button>
-			<button id="apply" class="red-button">apply</button>
 
 		<script src="js/snap.js"></script>
 </body>
 </html>
+
+<?php/*
+if (isset($_SESSION['usertoken'])) {
+	//echo "logged in";
+	if (isset($_POST['logout'])) {
+		header('location: logout.php');
+	}
+} else {echo "not logged in";}
+*/?>
 
