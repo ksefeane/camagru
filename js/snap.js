@@ -3,15 +3,16 @@ const snap = document.getElementById('snap');
 const canvas = document.getElementById('edit');
 const save = document.getElementById('save');
 const open = document.getElementById('open');
-
+const refresh = document.getElementById('refresh');
 const friday = document.getElementById('friday');
 const insta = document.getElementById('insta');
 const twitter = document.getElementById('twitter');
 const iphone = document.getElementById('iphone');
 const tiktok = document.getElementById('tiktok');
-const pic = null;
+const file = document.getElementById('file');
 
 var context = canvas.getContext('2d');
+var pic = null;
 
 open.addEventListener("click", feed);
 //feed();
@@ -25,6 +26,8 @@ tiktok.addEventListener("click", applytiktok);
 
 save.addEventListener("click", saveSnap);
 refresh.addEventListener("click", refreshSnap);
+file.addEventListener("click", uploadForm);
+
 function feed() {
 	var constraints = {video: {width: 500, height: 500}};
 	navigator.mediaDevices.getUserMedia(constraints)
@@ -32,14 +35,15 @@ function feed() {
 }
 
 function takeSnap () {
-	pic = context.drawImage(video, 0, 0, 500, 500);
+	context.drawImage(video, 0, 0, 500, 500);
+	pic = canvas;
 }
 
 function applyfriday () {context.drawImage(friday, 0, 340, 150, 150);}
 function applyinsta () {context.drawImage(insta, 10, 10, 100, 100);}
-function applytwitter () {context.drawImage(twitter, 0, 340, 150, 150);}
+function applytwitter () {context.drawImage(twitter, 360, 0, 150, 150);}
 function applyiphone () {context.drawImage(iphone, 80, 20, 350, 480);}
-function applytiktok () {context.drawImage(tiktok, 0, 340, 150, 150);}
+function applytiktok () {context.drawImage(tiktok, 360, 350, 150, 150);}
 
 function saveSnap () {
 	var data = canvas.toDataURL();
@@ -50,12 +54,22 @@ function saveSnap () {
 	xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	xhttp.onreadystatechange = function() {
     	if (this.readyState == 4 && this.status == 200) {
-      		alert(xhttp.responseText);
-    	}
+      		alert("success");
+    	} else 
+    		alert("failure");
 	};
 	xhttp.send('key='+data);
 }
 
 function refreshSnap () {
 	context.drawImage(pic, 0, 0, 500, 500);
+}
+
+function uploadForm () {
+	var state = document.getElementById("formkun").style.display;
+	if (state == "block")
+		document.getElementById("formkun").style.display = "none";
+	else
+		document.getElementById("formkun").style.display = "block";
+//	alert("hello");
 }

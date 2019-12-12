@@ -1,39 +1,53 @@
-#worktable{
-	width: 100%;
-	height: 500px;
-	background-color: black;
-}
 #cambox{
 	width: 500px;
 	height: 500px;
-	background-color: teal;
+	background-color: inherit;
 	margin: 0 auto;
 	display: inline-flex;
 }
 #filterbox{
 	width: 100px;
 	height: 500px;
-	background-color: pink;
+	background-color: inherit;
 	margin: 0 auto;
 	float: right;
 }
 #filter{
 	width: 100%;
 	height: 100px;
-	background-color: purple;
+	background-color: inherit;
 	display: inline-block;
 }
 .sticker{
 	margin: 0 5px;
 	width: 90px;
 	height: 90px;
-	background-color: purple;
+	background-color: inherit;
 }
 .red-button{
 	width: 80px;
-	height: 80px
+	height: 80px;
+	margin: 8px;
 	border-radius: 50px;
-	background-color: blue;
+	background-color: maroon;
 	color: white;
 	border: 0;
+}
+.popupform{
+	display: none;
+  	position: fixed;
+  	margin: 368 650;
+  	float: right;
+  	z-index: 9;
+  	
+}
+.formcontain{
+	width: 500px;
+	height: 500px;
+  	padding: 10px;
+	background-color = pink;
+}
+.formcontain input[type=file]{
+	width: 100%;
+	color: maroon;
 }
