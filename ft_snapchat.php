@@ -90,16 +90,18 @@ session_start();
 if (isset($_SESSION['usertoken'])) {
 	echo "logged in";
 	if (isset($_POST['logout'])) {
-		header('location: logout.php');
+		//header('location: logout.php');
+		require 'logout.php';
+	}
+	if (isset($_POST['upload'])) {
+		require_once 'classes/Uploads.php';
+		$file = $_FILES['the_file'];
+		if (Post::imageUpload($file)) {
+			echo "success";
+		} else {echo "failure";}
 	}
 } else {echo "not logged in<br/>";}
 
-require_once 'classes/Uploads.php';
-if (isset($_POST['upload'])) {
-	$file = $_FILES['the_file'];
-	if (Post::imageUpload($file)) {
-		echo "success";
-	} else {echo "failure";}
-}
+
 ?>
 

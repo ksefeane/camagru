@@ -1,21 +1,19 @@
 <?php
-//require_once 'classes/Uploads.php';
-
-//if (isset($_POST['upload'])) {
-//	$file = $_FILES['the_file'];
-//	if (Post::imageUpload($file)) {
-//		header('location: ft_snapchat.php');
-//	} else {echo "failure";}
+session_start();
 if (isset($_POST['key'])){
+	require_once 'classes/DB.php';
+
+
 	if (isset($_SESSION['usertoken'])) {
-		$user = $_SESSION['username'];
-	} else {
-		$user = "example".time();
-	}
-	$raw = $_POST['key'];
-	$raw = str_replace('data:image/png;base64,','', $raw);
-	$raw = str_replace(' ', '+', $raw);
-	$pic = base64_decode($raw);
-	file_put_contents("uploads/$user.png", $pic);
-} else {echo "error";}
+		$username = $_SESSION['username'];
+		$time = time();
+		$save = "uploads/".$username.$time;
+		$raw = $_POST['key'];
+		$raw = str_replace('data:image/png;base64,','', $raw);
+		$raw = str_replace(' ', '+', $raw);
+		$pic = base64_decode($raw);
+		file_put_contents("$save.png", $pic);
+		DB::query('INSERT INTO images (username, img_src, img_date) VALUES (:username, :img_src, :img_date)', array(':username'=>$username, ':img_src'=>$save.".png", ':img_date'=>sha1($time)));
+	} else {echo "error";}
+}
 ?>

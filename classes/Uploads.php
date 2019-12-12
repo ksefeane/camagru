@@ -8,7 +8,7 @@ class Post {
 			echo "image error<br/>";
 			return false;
 		}
-		$newname = "kori".time();
+		$newname = $_SESSION['username'].time();
 		$f_name = basename($file['name']);
 		$tmp_name = $file['tmp_name'];
 		$img_type = strtolower(pathinfo($dir.$f_name, PATHINFO_EXTENSION));

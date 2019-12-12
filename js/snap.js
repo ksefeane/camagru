@@ -73,7 +73,7 @@ function saveSnap () {
 	xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	xhttp.onreadystatechange = function() {
     	if (this.readyState == 4 && this.status == 200) {
-      		alert("saved");
+      		console.log(url);
     	} 
 	};
 	xhttp.send('key='+data);

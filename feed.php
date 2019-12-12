@@ -31,6 +31,7 @@ session_start();
 
 <?php
 require_once 'classes/Logs.php';
+require_once 'classes/DB.php';
 
 Logs::isLoggedIn();
 ?>
