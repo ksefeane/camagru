@@ -3,11 +3,12 @@ require_once 'classes/DB.php';
 
 class Post {
 	public static function imageUpload($file) {
-		$dir = "media/";
+		$dir = "uploads/";
 		if ($file['error'] == 1) {
 			echo "image error<br/>";
 			return false;
 		}
+		$newname = "kori".time();
 		$f_name = basename($file['name']);
 		$tmp_name = $file['tmp_name'];
 		$img_type = strtolower(pathinfo($dir.$f_name, PATHINFO_EXTENSION));
@@ -50,7 +51,7 @@ class Post {
 		if ($uploadOK == 0) {
 			echo "failed to upload. uploadOK = 0 <br/>";
 			return false;
-		} else if (move_uploaded_file($tmp_name, $dir.$f_name)) {
+		} else if (move_uploaded_file($tmp_name, $dir.$newname)) {
 			echo "file uploaded to $dir.$f_name <br/>";
 			return true;
 		} else {

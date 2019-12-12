@@ -53,12 +53,16 @@ function feed() {
 }
 
 function takeSnap () {
-	context.drawImage(video, 0, 0, 500, 500);
-	pic = canvas;
-	document.getElementById("edit").style.display = "block";
-	document.getElementById("hand").style.display = "none";
-	piccache();
-}
+	if (document.getElementById("open").innerHTML == "close") {
+		context.drawImage(video, 0, 0, 500, 500);
+		pic = canvas;
+		document.getElementById("edit").style.display = "block";
+		document.getElementById("hand").style.display = "none";
+		piccache();
+	} else {
+		alert("open the camera first")
+	}
+	}
 
 function saveSnap () {
 	var data = canvas.toDataURL();
@@ -69,7 +73,7 @@ function saveSnap () {
 	xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	xhttp.onreadystatechange = function() {
     	if (this.readyState == 4 && this.status == 200) {
-      		alert("success");
+      		alert("saved");
     	} 
 	};
 	xhttp.send('key='+data);
@@ -95,8 +99,6 @@ function uploadForm () {
 		document.getElementById("formkun").style.display = "none";
 	else
 		document.getElementById("formkun").style.display = "block";
-	document.getElementById("video").style.display = "none";
-	document.getElementById("purge").style.display = "block";
 }
 
 function applyfriday () {context.drawImage(friday, 0, 340, 150, 150);}
