@@ -56,7 +56,26 @@ session_start();
 			</form>
 			</div>
 
-
+			<div class="popbox" 
+			style="
+width: 300;
+height: 400;
+display: block;
+position: fixed;
+margin: 100 600;
+z-index: 10;
+background-color: green;
+">
+<div id="filter" style="background-color: purple; height: 130px">
+<img src="img/instagram.png" class="sticker" style="margin-left: 100px"/>
+</div>
+<div id="filter" style="background-color: purple; height: 130px">
+<img src="img/instagram.png" class="sticker" style="margin-left: 100px"/>
+</div>
+<div id="filter" style="background-color: purple; height: 130px">
+<img src="img/instagram.png" class="sticker" style="margin-left: 100px"/>
+</div>
+			</div>
 			<div id="cambox" style="float: right">
 				<img src="img/instagram.png" id="hand" class="camcircle" style="border-radius: 100px"/>
 				<canvas id="edit" width="500" height="500"></canvas>

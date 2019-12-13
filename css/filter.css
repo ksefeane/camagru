@@ -48,7 +48,6 @@
   	float: right;
   	z-index: 9;
   	background-color: inherit;
-  	
 }
 .formcontain{
 	width: 200px;
@@ -59,4 +58,13 @@
 .formcontain input[type=file]{
 	width: 100%;
 	color: white;
+}
+.popbox{
+	width: 200px;
+	height: 200px;
+	display: block;
+  	position: fixed;
+  	margin: 300 200;
+  	z-index: 10;
+  	background-color: green;
 }

@@ -62,7 +62,7 @@ function takeSnap () {
 	} else {
 		alert("open the camera first")
 	}
-	}
+}
 
 function saveSnap () {
 	var data = canvas.toDataURL();
