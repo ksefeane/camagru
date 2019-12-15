@@ -47,6 +47,21 @@ session_start();
 				<div id="filter">
 					<button id="file" class="red-button">file</button>
 				</div>
+				<div id="filter">
+					<button id="gallery" class="red-button">gallery</button>
+				</div>
+
+				<script>
+					document.getElementById('gallery').addEventListener("click", openGallery);
+
+					function openGallery () {
+						if (document.getElementById('popup').style.display == "none")
+							document.getElementById('popup').style.display = "block";
+						else
+							document.getElementById('popup').style.display = "none";
+					}
+				</script>
+
 			</div>
 
 			<div class="popupform" id="formkun">
@@ -56,11 +71,11 @@ session_start();
 			</form>
 			</div>
 
-			<div class="popbox" 
+			<div id="popup" 
 			style="
 width: 300;
 height: 400;
-display: block;
+display: none;
 position: fixed;
 margin: 100 600;
 z-index: 10;

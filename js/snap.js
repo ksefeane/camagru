@@ -12,6 +12,7 @@ const iphone = document.getElementById('iphone');
 const tiktok = document.getElementById('tiktok');
 const file = document.getElementById('file');
 const purge = document.getElementById('purge');
+const gallery = document.getElementById('gallery');
 
 var context = canvas.getContext('2d');
 var concopy = copy.getContext('2d');
@@ -31,6 +32,9 @@ tiktok.addEventListener("click", applytiktok);
 save.addEventListener("click", saveSnap);
 refresh.addEventListener("click", refreshSnap);
 file.addEventListener("click", uploadForm);
+gallery.addEventListener("click", openGallery);
+
+
 
 function feed() {
 	var state = document.getElementById("open").innerHTML;
@@ -99,6 +103,15 @@ function uploadForm () {
 		document.getElementById("formkun").style.display = "none";
 	else
 		document.getElementById("formkun").style.display = "block";
+}
+
+function openGallery() {
+	alert("heard");
+	var state = document.getElementById("popup").style.display;
+	if (state == "block")
+		document.getElementById("popup").style.display = "none";
+	else
+		document.getElementById("popup").style.display = "block";
 }
 
 function applyfriday () {context.drawImage(friday, 0, 340, 150, 150);}
