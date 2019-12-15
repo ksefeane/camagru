@@ -11,7 +11,7 @@ session_start();
 <body>
 		<div class="nav-bar">
 			<div id="logo">
-				<a href="http://localhost/camagru/feed.php?u=<?php $_SESSION['username'] ?>"><h1>C</h1></a>
+				<a href="http://localhost/camagru/feed.php"><h1>C</h1></a>
 			</div>
 			<div class="punch-hole">
 				<a href="http://localhost/camagru/logout.php"><p>O</p></a>
@@ -100,7 +100,7 @@ border-radius: 20px;
 				</div>
 			</div><br/>
 			
-<footer class="nav-bar" style="bottom: 0; position: absolute; height: 70px">
+<footer class="nav-bar" style="bottom: 0; position: absolute; height: 80px">
 <div class="punch-hole">
 	<a href="http://localhost/camagru/ft_snapchat.php"><p>k</p></a>
 </div>
@@ -126,6 +126,6 @@ if (isset($_SESSION['usertoken'])) {
 	}
 	if (!file_exists("temp/temp1.png")) {
 		echo "<script> document.getElementById('popup').style.display = \"none\"; </script>";} else {echo "<script> document.getElementById('popup').style.display = \"block\"; </script>";}
-} else {echo "not logged in<br/>";}
+} else {header('location: login.php');}
 ?>
 

@@ -20,7 +20,7 @@ class Logs {
 			setcookie("SID", $_SESSION['usertoken'], time() - 3600);
 			session_unset();
 			session_destroy();
-			echo "logged out <br/>";
+			header('location: index.php');
 		} else {header('location: index.php');}
 	}
 }
