@@ -55,10 +55,11 @@ session_start();
 					document.getElementById('gallery').addEventListener("click", openGallery);
 
 					function openGallery () {
-						if (document.getElementById('popup').style.display == "none")
-							document.getElementById('popup').style.display = "block";
-						else
-							document.getElementById('popup').style.display = "none";
+						//if (document.getElementById('popup').style.display == "none")
+						//	document.getElementById('popup').style.display = "block";
+						//else
+						//	document.getElementById('popup').style.display = "none";
+						location.reload();
 					}
 				</script>
 
@@ -73,22 +74,23 @@ session_start();
 
 			<div id="popup" 
 			style="
-width: 300;
+width: 200;
 height: 400;
-display: none;
+display: block;
 position: fixed;
-margin: 100 600;
+margin: 50 658;
 z-index: 10;
-background-color: green;
+background-color: inherit;
+border-radius: 20px;
 ">
-<div id="filter" style="background-color: purple; height: 130px">
-<img src="img/instagram.png" class="sticker" style="margin-left: 100px"/>
+<div id="filter" style="background-color: inherit; height: 140px">
+<img src="temp/temp1.png" class="sticker" style="margin: 25 50"/>
 </div>
-<div id="filter" style="background-color: purple; height: 130px">
-<img src="img/instagram.png" class="sticker" style="margin-left: 100px"/>
+<div id="filter" style="background-color: inherit; height: 140px">
+<img src="temp/temp2.png" class="sticker" style="margin: 25 50"/>
 </div>
-<div id="filter" style="background-color: purple; height: 130px">
-<img src="img/instagram.png" class="sticker" style="margin-left: 100px"/>
+<div id="filter" style="background-color: inherit; height: 140px">
+<img src="temp/temp3.png" class="sticker" style="margin: 25 50"/>
 </div>
 			</div>
 			<div id="cambox" style="float: right">

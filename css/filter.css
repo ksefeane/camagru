@@ -32,6 +32,10 @@
 	height: 90px;
 	background-color: inherit;
 }
+.photo{
+	height: 140px;
+	width: 140px;
+}
 .red-button{
 	width: 80px;
 	height: 80px;

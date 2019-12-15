@@ -5,6 +5,7 @@ if (isset($_POST['key'])){
 
 
 	if (isset($_SESSION['usertoken'])) {
+		$num = 0;
 		$username = $_SESSION['username'];
 		$time = time();
 		$save = "uploads/".$username.$time;
@@ -13,7 +14,22 @@ if (isset($_POST['key'])){
 		$raw = str_replace(' ', '+', $raw);
 		$pic = base64_decode($raw);
 		file_put_contents("$save.png", $pic);
+		$num = temp();
+		file_put_contents("temp/temp".$num.".png", $pic);
 		DB::query('INSERT INTO images (username, img_src, img_date) VALUES (:username, :img_src, :img_date)', array(':username'=>$username, ':img_src'=>$save.".png", ':img_date'=>sha1($time)));
 	} else {echo "error";}
+}
+
+function temp () {
+	if (file_exists("temp/temp1.png") && !file_exists("temp/temp2.png")) {
+		return 2;
+	} else if (file_exists("temp/temp2.png") && !file_exists("temp/temp3.png")) {
+		return 3;
+	} else if (file_exists("temp/temp3.png")) {
+		unlink("temp/temp1.png");
+		unlink("temp/temp2.png");
+		unlink("temp/temp3.png");
+		return 1;
+	} else {return 1;}
 }
 ?>

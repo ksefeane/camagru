@@ -12,7 +12,6 @@ const iphone = document.getElementById('iphone');
 const tiktok = document.getElementById('tiktok');
 const file = document.getElementById('file');
 const purge = document.getElementById('purge');
-const gallery = document.getElementById('gallery');
 
 var context = canvas.getContext('2d');
 var concopy = copy.getContext('2d');
@@ -20,7 +19,7 @@ var pic = null;
 
 open.addEventListener("click", feed);
 purge.addEventListener("click", feed);
-//feed();
+feed();
 snap.addEventListener("click", takeSnap);
 
 friday.addEventListener("click", applyfriday);
@@ -32,7 +31,6 @@ tiktok.addEventListener("click", applytiktok);
 save.addEventListener("click", saveSnap);
 refresh.addEventListener("click", refreshSnap);
 file.addEventListener("click", uploadForm);
-gallery.addEventListener("click", openGallery);
 
 
 
@@ -81,6 +79,7 @@ function saveSnap () {
     	} 
 	};
 	xhttp.send('key='+data);
+	location.reload();
 }
 
 function piccache () {
@@ -103,15 +102,6 @@ function uploadForm () {
 		document.getElementById("formkun").style.display = "none";
 	else
 		document.getElementById("formkun").style.display = "block";
-}
-
-function openGallery() {
-	alert("heard");
-	var state = document.getElementById("popup").style.display;
-	if (state == "block")
-		document.getElementById("popup").style.display = "none";
-	else
-		document.getElementById("popup").style.display = "block";
 }
 
 function applyfriday () {context.drawImage(friday, 0, 340, 150, 150);}
