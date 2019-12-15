@@ -48,7 +48,7 @@ function feed() {
 		document.getElementById("purge").style.display = "block";
 		document.getElementById("video").style.display = "none";
 		navigator.mediaDevices.getUserMedia(constraints)
-			.then(stream => {video.srcObject = null});
+			.then(stream => {video.srcObject = stream});
 		video.pause();
 		video.src = "";
 	}

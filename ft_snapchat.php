@@ -47,22 +47,6 @@ session_start();
 				<div id="filter">
 					<button id="file" class="red-button">file</button>
 				</div>
-				<div id="filter">
-					<button id="gallery" class="red-button">gallery</button>
-				</div>
-
-				<script>
-					document.getElementById('gallery').addEventListener("click", openGallery);
-
-					function openGallery () {
-						//if (document.getElementById('popup').style.display == "none")
-						//	document.getElementById('popup').style.display = "block";
-						//else
-						//	document.getElementById('popup').style.display = "none";
-						location.reload();
-					}
-				</script>
-
 			</div>
 
 			<div class="popupform" id="formkun">
@@ -116,7 +100,11 @@ border-radius: 20px;
 				</div>
 			</div><br/>
 			
-
+<footer class="nav-bar" style="bottom: 0; position: absolute; height: 70px">
+<div class="punch-hole">
+	<a href="http://localhost/camagru/ft_snapchat.php"><p>k</p></a>
+</div>
+</footer>
 
 		<script src="js/snap.js"></script>
 </body>
@@ -136,8 +124,8 @@ if (isset($_SESSION['usertoken'])) {
 			echo "success";
 		} else {echo "failure";}
 	}
+	if (!file_exists("temp/temp1.png")) {
+		echo "<script> document.getElementById('popup').style.display = \"none\"; </script>";} else {echo "<script> document.getElementById('popup').style.display = \"block\"; </script>";}
 } else {echo "not logged in<br/>";}
-
-
 ?>
 
