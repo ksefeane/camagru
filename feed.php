@@ -43,7 +43,7 @@ $_SESSION['p'] = 1;
 			</div>
 		</div>
 
-<div id="maxicam">
+<div id="maxicam" style="margin-top: 15">
 			<img src="uploads/<?php echo $_SESSION['username'];?>1.png"/>
 		</div></p>
 <div id="maxicam">
