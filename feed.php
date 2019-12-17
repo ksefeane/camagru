@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION['p'] = 1;
 ?>
 
 <html>
@@ -28,27 +29,36 @@ session_start();
 			</div>
 		</div>
 	
-		<div id="maxicam" style="background-color: blue">
+		<div id="maxicam" style="background-color: blue; display: none">
 			<div id="minicam">
-				<img src="uploads/<?php echo $_SESSION['username'];?>1.png"/>
+				<img src="uploads/<?php echo $_SESSION['username'].$_SESSION['p'];?>.png"/>
 					<button id="commentbutton" class="black-button">comment</button></p>
 					<button id="likebutton" class="black-button" style="margin-top:340">like</button>
 			</div>
 			<div id="commentbox">
 				<textarea name="comment" form="commentform" class="commentarea"></textarea>
 				<form action="comment.php" method="POST" id="commentform">
-					
-					<input type="button" id="login-button" name="send" value="send" style="margin: 10 260">
+					<input type="button" id="login-button" name="sendcomment" value="send" style="margin: 10 260">
 				</form>
 			</div>
 		</div>
 
-		
-		<footer class="nav-bar" style="bottom: 0; position: absolute; height: 80px">
-			<div class="punch-hole">
-				<a href="http://localhost/camagru/ft_snapchat.php"><p>k</p></a>
-			</div>
-		</footer>
+<div id="maxicam">
+			<img src="uploads/<?php echo $_SESSION['username'];?>1.png"/>
+		</div></p>
+<div id="maxicam">
+			<img src="uploads/<?php echo $_SESSION['username'];?>2.png"/>
+		</div></p>
+<div id="maxicam">
+			<img src="uploads/<?php echo $_SESSION['username'];?>3.png"/>
+		</div></p>
+<div id="maxicam">
+			<img src="uploads/<?php echo $_SESSION['username'];?>4.png"/>
+		</div></p>
+<div id="maxicam">
+			<img src="uploads/<?php echo $_SESSION['username'];?>5.png"/>
+		</div>
+		<button id="nextbutton" class="red-button" style="margin:5 46%">next</button>
 
 		<script src="js/feed.js"></script>
 </body>

@@ -2,7 +2,7 @@
 include 'classes/Logs.php';
 
 if (Logs::isLoggedIn()) {
-	echo "logged in!<br />";
+	header('Refresh: 5; url=feed.php');
 } else {
 	header('location: login.php');
 }

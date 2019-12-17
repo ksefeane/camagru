@@ -8,8 +8,9 @@ class Logs {
 			return true;
 		} else if (isset($_COOKIE['SID'])) {
 			$token = DB::query('SELECT token FROM tokens WHERE token=:token', array(':token'=>sha1($_COOKIE['SID'])));
+			$token = $token[0]['token'];
 			$_SESSION['usertoken'] = $token;
-			echo "logged in database";
+			echo "logged in database ".$token;
 			return true;
 		} else {echo "not logged in<br />"; return false;}
 	}
@@ -20,7 +21,7 @@ class Logs {
 			setcookie("SID", $_SESSION['usertoken'], time() - 3600);
 			session_unset();
 			session_destroy();
-			header('location: index.php');
+			header('Refresh:5; url=index.php');
 		} else {header('location: index.php');}
 	}
 }

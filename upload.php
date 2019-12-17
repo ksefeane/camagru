@@ -6,10 +6,11 @@ if (isset($_POST['key'])){
 
 	if (isset($_SESSION['usertoken'])) {
 		$num = 0;
-		static $n = 1;
+		$n = 1;
 		$username = $_SESSION['username'];
+		$n = piccount($username, $n);
 		$time = time();
-		$save = "uploads/".$username.$n++;
+		$save = "uploads/".$username.$n;
 		$raw = $_POST['key'];
 		$raw = str_replace('data:image/png;base64,','', $raw);
 		$raw = str_replace(' ', '+', $raw);
@@ -19,6 +20,13 @@ if (isset($_POST['key'])){
 		file_put_contents("temp/temp".$num.".png", $pic);
 		DB::query('INSERT INTO images (username, img_src, img_date) VALUES (:username, :img_src, :img_date)', array(':username'=>$username, ':img_src'=>$save.".png", ':img_date'=>$time));
 	} else {echo "error";}
+}
+
+function piccount ($username) {
+	$n = 1;
+	while (file_exists("uploads/".$username.$n.".png"))
+		$n++;
+	return $n;
 }
 
 function temp () {

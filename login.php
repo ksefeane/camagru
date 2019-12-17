@@ -2,29 +2,6 @@
 session_start();
 ?>
 
-<html>
-<head>
-	<title>camagru - login</title>
-<!--	<meta http-equiv="refresh" content="2"> -->
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-</head>
-<body>
-	<div class="lrg-card">
-		<div id="login-card">
-			<form action="login.php" method="POST">
-				<h1>camagru</h1>
-				<p><input type="text" name="username" placeholder="username" required/></p>
-				<p><input type="password" name="password" placeholder="password" required/></p>
-				<input id="login-button" type="submit" name="login" value="submit"/></p>
-			</form>
-			<a href="forgot_password.php">forgot password?</a></p>
-			<a href="create_account.php">new member?</a></p>
-		</div>
-		<img id="login-pic" src="img/camera_tikki"/>	
-	</div>
-</body>
-</html>
-
 <?php
 include 'classes/DB.php';
 
@@ -49,3 +26,28 @@ if (isset($_SESSION['usertoken'])) {
 	} else {echo "user not found";}
 } else {echo "logged out";}
 ?>
+
+<html>
+<head>
+	<title>camagru - login</title>
+<!--	<meta http-equiv="refresh" content="2"> -->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<div class="lrg-card">
+		<div id="login-card">
+			<form action="login.php" method="POST">
+				<h1>camagru</h1>
+				<p><input type="text" name="username" placeholder="username" required/></p>
+				<p><input type="password" name="password" placeholder="password" required/></p>
+				<input id="login-button" type="submit" name="login" value="submit"/></p>
+			</form>
+			<a href="forgot_password.php">forgot password?</a></p>
+			<a href="create_account.php">new member?</a></p>
+		</div>
+		<img id="login-pic" src="img/camera_tikki"/>	
+	</div>
+</body>
+</html>
+
+
