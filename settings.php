@@ -30,14 +30,17 @@ session_start();
 		
 		<form action="settings.php" method="POST">
 			<input type="text" name="username" placeholder="new username"/>  
+			<input type="password" name="pass" placeholder="password"/>  
 			<input type="submit" name="upname" value="update" id="login-button"/>
 		</form>
 		<form action="settings.php" method="POST">
 			<input type="email" name="email" placeholder="new email"/>  
+			<input type="password" name="pass" placeholder="password"/>  
 			<input type="submit" name="upmail" value="update" id="login-button"/>
 		</form>
 		<form action="settings.php" method="POST">
 			<input type="password" name="password" placeholder="new password"/>  
+			<input type="password" name="pass" placeholder="password"/>  
 			<input type="submit" name="uppass" value="update" id="login-button"/>
 		</form>
 
@@ -45,6 +48,7 @@ session_start();
 		<form action="settings.php" method="POST">
 			<input type="radio" name="notification" value="yes"/> yes</p>
 			<input type="radio" name="notification" value="no"/>  no</p>
+			<input type="password" name="pass" placeholder="password"/>  
 			<input type="submit" name="upnoti" value="update" id="login-button"/>
 		</form>
 </body>
@@ -57,21 +61,50 @@ if (isset($_SESSION['usertoken'])) {
 	$username = $q[0][1];
 	$email = $q[0][2];
 	$password = $q[0][3];
+	$notif = $q[0][8];
 
 	echo "username -> ".$username."<br/>";
 	echo "email -> ".$email."<br/>";
 	echo "password -> ".$password."<br/>";
-	echo "notifications -> "."Yes"."<br/>";
+	echo "notifications -> ".$notif."<br/>";
 	
 	if (isset($_POST['upname'])) {
 		$newname = $_POST['username'];
-		DB::query('UPDATE users SET username=:newname WHERE username=:username', array(':username'=>$username, ':newname'=>$newname));
-		$_SESSION['username'] = $newname;
-		header('Refresh:3; url=settings.php');
+		$pass = $_POST['pass'];
+		if (password_verify($pass, $password)) {
+			DB::query('UPDATE users SET username=:newname WHERE username=:username', array(':username'=>$username, ':newname'=>$newname));
+			$_SESSION['username'] = $newname;
+			header('location: settings.php');
+		} else {echo "please enter your current password";}
 	}
-	if (isset($_POST['upmail'])) { echo "email things"; }
-	if (isset($_POST['uppass'])) { echo "password things"; }
-	if (isset($_POST['upnoti'])) { echo "notification radio box things"; }
+	if (isset($_POST['upmail'])) {
+		$newmail = $_POST['email'];
+		$pass = $_POST['pass'];
+		if (password_verify($pass, $password)) {
+			DB::query('UPDATE users SET email=:newmail WHERE email=:email', array(':email'=>$email, ':newmail'=>$newmail));
+			header('location: settings.php');
+		} else {echo "please enter your current password";}
+	}
+	if (isset($_POST['uppass'])) {
+		$newpass = $_POST['password'];
+		$pass = $_POST['pass'];
+		if (password_verify($pass, $password)) {
+			DB::query('UPDATE users SET password=:newpass WHERE username=:username', array(':username'=>$username, ':newpass'=>password_hash($newpass, PASSWORD_BCRYPT)));
+		header('location: settings.php');
+		} else {echo "please enter your current password";}
+	}
+	if (isset($_POST['upnoti'])) {
+		$newnoti = $_POST['notification'];
+		$pass = $_POST['pass'];
+		if (password_verify($pass, $password)) {
+			if ($newnoti == "yes") {
+			DB::query('UPDATE users SET notification=\'T\' WHERE username=:username', array('username'=>$username));
+			} else if ($newnoti == "no") {
+		DB::query('UPDATE users SET notification=\'F\' WHERE username=:username', array(':username'=>$username));
+			}
+			header('location: settings.php');
+		}else {echo "please enter your current password";}
+	}
 } else {header('location: login.php');}
 ?>
 

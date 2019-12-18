@@ -29,7 +29,7 @@ function create_t_users($t_name, $db_name, $conn){
 		date_created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 		vkey VARCHAR (255) NOT NULL,
 		verified ENUM('T','F') NOT NULL DEFAULT 'F',
-		admin ENUM('T','F') NOT NULL DEFAULT 'F'
+		admin ENUM('T','F') NOT NULL DEFAULT 'F',
 		notification ENUM('T','F') NOT NULL DEFAULT 'T'
 		)";
 	$conn->exec($sql);
