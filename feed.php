@@ -1,6 +1,10 @@
 <?php
 session_start();
-$_SESSION['p'] = 1;
+$n = 1;
+while (file_exists("uploads/".$n.".png"))
+	$n++;
+$_SESSION['pic'] = --$n;
+echo $_SESSION['pic'];
 ?>
 
 <html>
@@ -31,7 +35,7 @@ $_SESSION['p'] = 1;
 	
 		<div id="maxicam" style="background-color: blue; display: none">
 			<div id="minicam">
-				<img src="uploads/<?php echo $_SESSION['username'].$_SESSION['p'];?>.png"/>
+				<img src="uploads/<?php echo $_SESSION['pic'];?>.png"/>
 					<button id="commentbutton" class="black-button">comment</button></p>
 					<button id="likebutton" class="black-button" style="margin-top:340">like</button>
 			</div>
@@ -43,15 +47,17 @@ $_SESSION['p'] = 1;
 			</div>
 		</div>
 		<?php
-			$g = "<div id=\"maxicam\" style=\"margin-top: 15\">
-				<img src=\"uploads/".$_SESSION['username']."1.png\"/>
-			</div></p>";
-			$n = 1;
-			while ($n++ < 5)
+			$n = $_SESSION['pic'];
+			while ($n > 0) {
+				$g = "<div id=\"maxicam\" style=\"margin-top: 15\">
+				<img src=\"uploads/".$n.".png\"/>
+				</div></p>";
 				echo $g;
+				$n--;
+			}
 		?>
-		<button id="nextbutton" class="red-button" style="margin:5 46%">next</button>
-
+<!--		<button id="nextbutton" class="red-button" style="margin:5 46%">next</button>
+-->
 		<script src="js/feed.js"></script>
 </body>
 </html>

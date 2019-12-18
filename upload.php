@@ -10,7 +10,7 @@ if (isset($_POST['key'])){
 		$username = $_SESSION['username'];
 		$n = piccount($username, $n);
 		$time = time();
-		$save = "uploads/".$username.$n;
+		$save = "uploads/".$n;
 		$raw = $_POST['key'];
 		$raw = str_replace('data:image/png;base64,','', $raw);
 		$raw = str_replace(' ', '+', $raw);
@@ -24,7 +24,7 @@ if (isset($_POST['key'])){
 
 function piccount ($username) {
 	$n = 1;
-	while (file_exists("uploads/".$username.$n.".png"))
+	while (file_exists("uploads/".$n.".png"))
 		$n++;
 	return $n;
 }
