@@ -42,22 +42,14 @@ $_SESSION['p'] = 1;
 				</form>
 			</div>
 		</div>
-
-<div id="maxicam" style="margin-top: 15">
-			<img src="uploads/<?php echo $_SESSION['username'];?>1.png"/>
-		</div></p>
-<div id="maxicam">
-			<img src="uploads/<?php echo $_SESSION['username'];?>2.png"/>
-		</div></p>
-<div id="maxicam">
-			<img src="uploads/<?php echo $_SESSION['username'];?>3.png"/>
-		</div></p>
-<div id="maxicam">
-			<img src="uploads/<?php echo $_SESSION['username'];?>4.png"/>
-		</div></p>
-<div id="maxicam">
-			<img src="uploads/<?php echo $_SESSION['username'];?>5.png"/>
-		</div>
+		<?php
+			$g = "<div id=\"maxicam\" style=\"margin-top: 15\">
+				<img src=\"uploads/".$_SESSION['username']."1.png\"/>
+			</div></p>";
+			$n = 1;
+			while ($n++ < 5)
+				echo $g;
+		?>
 		<button id="nextbutton" class="red-button" style="margin:5 46%">next</button>
 
 		<script src="js/feed.js"></script>

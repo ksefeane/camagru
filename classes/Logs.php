@@ -21,7 +21,7 @@ class Logs {
 			setcookie("SID", $_SESSION['usertoken'], time() - 3600);
 			session_unset();
 			session_destroy();
-			header('Refresh:5; url=index.php');
+			header('Refresh:1; url=index.php');
 		} else {header('location: index.php');}
 	}
 }

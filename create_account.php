@@ -35,7 +35,6 @@
 					if (preg_match('/[a-zA-Z0-9_]+/', $username)){
 						if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
 							if (strlen($password) > 3 && preg_match('/[a-z][0-9]+/', $password)) {
-								echo "hello";
 							DB::query('INSERT INTO users (username, email, password, vkey) VALUES (:username, :email, :password, :vkey)', array(':username'=>$username, ':email'=>$email, ':password'=>password_hash($password, PASSWORD_BCRYPT), ':vkey'=>$vkey));
 							$to = $email;
 							$subject = "Email Verification";
