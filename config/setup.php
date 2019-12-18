@@ -2,6 +2,12 @@
 require 'connect.php';
 
 $db = DB_NAME;
+array_map('unlink', glob("temp/*"));
+array_map('unlink', glob("uploads/*"));
+if (isset($_SESSION['username'])) {
+	session_unset();
+	session_destroy();
+}
 delete_db($db, $conn);
 create_db($db, $conn);
 create_t_users("users", $db, $conn);
@@ -9,7 +15,7 @@ create_t_tokens("tokens", $db, $conn);
 create_t_images("images", $db, $conn);
 create_t_likes("likes", $db, $conn);
 create_t_comments("comments", $db, $conn);
-header('Refresh:1; url=../login.php');
+header('Refresh:3; url=../create_account.php');
 function create_db($db_name, $conn){
 	$sql = "CREATE DATABASE IF NOT EXISTS ".$db_name;
 	$conn->exec($sql);
