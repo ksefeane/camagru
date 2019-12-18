@@ -70,6 +70,7 @@ if (isset($_SESSION['usertoken'])) {
 	
 	if (isset($_POST['upname'])) {
 		$newname = $_POST['username'];
+		$newname = strip_tags($newname);
 		$pass = $_POST['pass'];
 		if (password_verify($pass, $password)) {
 			DB::query('UPDATE users SET username=:newname WHERE username=:username', array(':username'=>$username, ':newname'=>$newname));
@@ -79,6 +80,7 @@ if (isset($_SESSION['usertoken'])) {
 	}
 	if (isset($_POST['upmail'])) {
 		$newmail = $_POST['email'];
+		$newmail = strip_tags($newmail);
 		$pass = $_POST['pass'];
 		if (password_verify($pass, $password)) {
 			DB::query('UPDATE users SET email=:newmail WHERE email=:email', array(':email'=>$email, ':newmail'=>$newmail));
@@ -87,6 +89,7 @@ if (isset($_SESSION['usertoken'])) {
 	}
 	if (isset($_POST['uppass'])) {
 		$newpass = $_POST['password'];
+		$newpass = strip_tags($newpass);
 		$pass = $_POST['pass'];
 		if (password_verify($pass, $password)) {
 			DB::query('UPDATE users SET password=:newpass WHERE username=:username', array(':username'=>$username, ':newpass'=>password_hash($newpass, PASSWORD_BCRYPT)));

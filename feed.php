@@ -4,7 +4,6 @@ $n = 1;
 while (file_exists("uploads/".$n.".png"))
 	$n++;
 $_SESSION['pic'] = --$n;
-echo $_SESSION['pic'];
 ?>
 
 <html>
@@ -56,8 +55,6 @@ echo $_SESSION['pic'];
 				$n--;
 			}
 		?>
-<!--		<button id="nextbutton" class="red-button" style="margin:5 46%">next</button>
--->
 		<script src="js/feed.js"></script>
 </body>
 </html>
@@ -65,10 +62,6 @@ echo $_SESSION['pic'];
 <?php
 if (isset($_SESSION['usertoken'])) {
 	echo "logged in";
-	if (isset($_POST['logout'])) {
-		//header('location: logout.php');
-		require 'logout.php';
-	}
-} else {header('location: login.php');}
+}
 ?>
 

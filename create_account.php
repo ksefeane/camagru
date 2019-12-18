@@ -24,9 +24,9 @@
 	require 'classes/DB.php';
 
 	if (isset($_POST['create_account'])){
-		$username = $_POST['username'];
-		$password = $_POST['password'];
-		$email = $_POST['email'];
+		$username = strip_tags($_POST['username']);
+		$password = strip_tags($_POST['password']);
+		$email = strip_tags($_POST['email']);
 		$vkey = sha1(time().$username);
 
 		if (!DB::query('SELECT username FROM users WHERE username=:username', array(':username'=>$username))) {

@@ -2,7 +2,7 @@
 require_once 'classes/DB.php';
 
 if (isset($_POST['reset'])) {
-	$username = $_POST['username'];
+	$username = strip_tags($_POST['username']);
 	if (DB::query('SELECT username FROM users WHERE username=:username', array('username'=>$username))) {
 		$email = DB::query('SELECT email FROM users WHERE username=:username', array('username'=>$username))[0]['email'];
 		$vkey = DB::query('SELECT vkey FROM users WHERE email=:email', array('email'=>$email))[0]['vkey'];

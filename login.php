@@ -8,8 +8,8 @@ include 'classes/DB.php';
 if (isset($_SESSION['usertoken'])) {
 	header('location: ft_snapchat.php');
 } else if (isset($_POST['login'])) {
-	$username = $_POST['username'];
-	$password = $_POST['password'];
+	$username = strip_tags($_POST['username']);
+	$password = strip_tags($_POST['password']);
 	if (DB::query('SELECT username FROM users WHERE username=:username AND verified=\'T\'', array(':username'=>$username))) {
 		$dbpass = DB::query('SELECT password FROM users WHERE username=:username', array('username'=>$username))[0]['password'];
 		if (password_verify($password, $dbpass)) {
@@ -21,7 +21,7 @@ if (isset($_SESSION['usertoken'])) {
 			$_SESSION['username'] = $username;
 			setcookie("SID", $_SESSION['usertoken'], time() + 60 * 60 * 24 * 1);
 			echo "login successful";
-			header('location: ft_snapchat.php');
+			header('location: feed.php');
 		} else {echo "password incorrect";}
 	} else {echo "user not found";}
 } else {echo "logged out";}
