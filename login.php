@@ -6,7 +6,7 @@ session_start();
 include 'classes/DB.php';
 
 if (isset($_SESSION['usertoken'])) {
-	header('location: ft_snapchat.php');
+	header('location: feed.php');
 } else if (isset($_POST['login'])) {
 	$username = strip_tags($_POST['username']);
 	$password = strip_tags($_POST['password']);
