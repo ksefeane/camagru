@@ -2,13 +2,10 @@
 require 'connect.php';
 
 $db = DB_NAME;
-<<<<<<< HEAD
 array_map('unlink', glob("../temp/*"));
 array_map('unlink', glob("../uploads/*"));
-=======
 array_map('unlink', glob("temp/*"));
 array_map('unlink', glob("uploads/*"));
->>>>>>> 22f1976b334a5eecebb2c66b66efadd4261401b2
 if (isset($_SESSION['username'])) {
 	session_unset();
 	session_destroy();

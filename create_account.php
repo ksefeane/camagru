@@ -28,6 +28,7 @@
 		$password = strip_tags($_POST['password']);
 		$email = strip_tags($_POST['email']);
 		$vkey = sha1(time().$username);
+		$host = $_SERVER['HTTP_HOST'];
 
 		if (!DB::query('SELECT username FROM users WHERE username=:username', array(':username'=>$username))) {
 			if (!DB::query('SELECT email FROM users WHERE email=:email', array(':email'=>$email))) {
@@ -38,7 +39,7 @@
 							DB::query('INSERT INTO users (username, email, password, vkey) VALUES (:username, :email, :password, :vkey)', array(':username'=>$username, ':email'=>$email, ':password'=>password_hash($password, PASSWORD_BCRYPT), ':vkey'=>$vkey));
 							$to = $email;
 							$subject = "Email Verification";
-							$msg = "<a href=\"http://localhost/camagru/verify.php?vkey=$vkey\"> please click here to register account </a>";
+							$msg = "<a href=\"http://$host/camagru/verify.php?vkey=$vkey\"> please click here to register account </a>";
 							$headers = 'From: camagru.com' . "\r\n";
 							$headers .= 'MIME-Version: 1.0' . "\r\n";
 							$headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
