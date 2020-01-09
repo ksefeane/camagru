@@ -8,8 +8,9 @@ if (isset($_POST['reset'])) {
 		$vkey = DB::query('SELECT vkey FROM users WHERE email=:email', array('email'=>$email))[0]['vkey'];
 		$reset = sha1($email.$vkey);
 		$to = $email;
+		$host = $_SERVER['HTTP_HOST'];
 		$subject = "password reset";
-		$msg = "<a href=\"http://localhost/camagru/reset_password.php?u=$username&r=$reset\"> reset password </a>";
+		$msg = "<a href=\"http://$host/camagru/reset_password.php?u=$username&r=$reset\"> reset password </a>";
 		$headers = 'From: camagru.com' . "\r\n";
 		$headers .= 'MIME-Version: 1.0' . "\r\n";
 		$headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
