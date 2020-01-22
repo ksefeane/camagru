@@ -44,8 +44,9 @@ if (isset($_SESSION['usertoken'])) {
 			</form>
 			<a href="forgot_password.php">forgot password?</a></p>
 			<a href="create_account.php">new member?</a></p>
+			<a href="gallery.php">gallery</a></p>
 		</div>
-		<img id="login-pic" src="img/camera_tikki"/>	
+		<img id="login-pic" src="img/cameramen2.gif"/>	
 	</div>
 </body>
 </html>

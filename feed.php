@@ -1,10 +1,5 @@
 <?php
 session_start();
-$n = 1;
-while (file_exists("uploads/".$n.".png"))
-$n++;
-$_SESSION['pic'] = --$n;
-
 ?>
 
 <html>
@@ -33,35 +28,11 @@ $_SESSION['pic'] = --$n;
 </div>
 </div>
 
-<div id="maxicam" style="background-color: blue; display: none">
-<div id="minicam">
-<img src="uploads/<?php echo $_SESSION['pic'];?>.png"/>
-<button id="commentbutton" class="black-button">comment</button></p>
-<button id="likebutton" class="black-button" style="margin-top:340">like</button>
-</div>
-<div id="commentbox">
-<textarea name="comment" form="commentform" class="commentarea"></textarea>
-<form action="comment.php" method="POST" id="commentform">
-<input type="button" id="login-button" name="sendcomment" value="send" style="margin: 10 260">
-</form>
-</div>
-</div>
-<?php
-$n = $_SESSION['pic'];
-while ($n > 0) {
-	$g = "<div id=\"maxicam\" style=\"margin-top: 15\">
-		<img src=\"uploads/".$n.".png\"/>
-		</div></p>";
-	echo $g;
-	$n--;
-}
-?>
-<script src="js/feed.js"></script>
-</body>
-</html>
+<table>d
 
+</table>
 <?php
 if (isset($_SESSION['usertoken'])) {
 	echo "logged in";
-}
+} else {header('location: login.php');}
 ?>

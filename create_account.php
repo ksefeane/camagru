@@ -13,9 +13,10 @@
 			<input type="password" name="password" value="" placeholder="password" required><p />
 			<input id="login-button" type="submit" name="create_account" value="submit">
 			</form>
-			<a href="login.php">already a member?</a>
+			<a href="login.php">already a member?</a><p/>
+			<a href="gallery.php">gallery</a>
 		</div>
-		<img id="login-pic" src="img/camera_tikki"/>
+		<img id="login-pic" src="img/cameramen.gif"/>
 	</div>
 </body>
 </html>
