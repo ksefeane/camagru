@@ -29,7 +29,7 @@
 		$email = strip_tags($_POST['email']);
 		$vkey = sha1(time().$username);
 		$host = $_SERVER['HTTP_HOST'];
-
+		
 		if (!DB::query('SELECT username FROM users WHERE username=:username', array(':username'=>$username))) {
 			if (!DB::query('SELECT email FROM users WHERE email=:email', array(':email'=>$email))) {
 				if (strlen($username) >= 3 && strlen($username) <= 32){
